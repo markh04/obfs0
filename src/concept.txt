@@ -1,0 +1,34 @@
+Client -> Server
+
+GET / HTTP/1.1
+Host: example.com
+ETag: AAA\x1b
+Accept-Encoding: xor
+
+-----------------
+
+Client <- Server
+
+HTTP/1.1 200 OK
+ETag: AAA\x1b
+Content-length: NNN
+
+------------------
+
+-> Data ^ ETag
+<- Data ^ ETag
+
+*after NNN bytes*
+-> Data
+<- Data
+
+
+
+If client is invalid or real browser:
+Client <- Server
+
+HTTP/1.1 301 Moved permanently
+Location: https://example.com
+Content-Length: 53
+
+<a href="https://example.com">https://example.com</a>
