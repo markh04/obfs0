@@ -2,7 +2,7 @@ Client -> Server
 
 GET / HTTP/1.1
 Host: example.com
-ETag: AAA\x1b
+ETag: 33aa44ff
 Accept-Encoding: xor
 
 -----------------
@@ -10,18 +10,13 @@ Accept-Encoding: xor
 Client <- Server
 
 HTTP/1.1 200 OK
-ETag: AAA\x1b
+ETag: 33aa44ff
 Content-length: NNN
 
 ------------------
 
 -> Data ^ ETag
 <- Data ^ ETag
-
-*after NNN bytes*
--> Data
-<- Data
-
 
 
 If client is invalid or real browser:
